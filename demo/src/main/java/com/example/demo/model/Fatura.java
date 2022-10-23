@@ -78,7 +78,7 @@ public class Fatura {
 			logger.info(">>>>>> setDataVencimento  => " + data);
 			return data;
 		} else {
-			throw new IllegalArgumentException("Data de vencimento invalida");
+			throw new IllegalArgumentException("Data invalida");
 		}
 
 	}
@@ -100,7 +100,7 @@ public class Fatura {
 
 	}
 	/**
-	 * verifica se a data esta no formato valido, dia e mes e ano valido
+	 * verifica se a data esta no formato dia e mes e ano valido
 	 * @param data
 	 * @return true ou false ou uma exception
 	 */
@@ -120,10 +120,10 @@ public class Fatura {
 		}
 	}
 	/**
-	 * verifica se a data de vencimento eh maior que a data atual
+	 * compara a data atual com a data do vencimento 
 	 * @param dataAtual
 	 * @param dataVencimento
-	 * @return true ou false ou uma exception
+	 * @return true se a data de venc eh maior que a data atual ou false ou uma exception
 	 */
 	public boolean dtVencMaiorDtAtual(String dataAtual, String dataVencimento) {
 		try {
@@ -154,10 +154,10 @@ public class Fatura {
 			if (temp > 0) {
 				return Float.parseFloat(v);
 			} else {
-				throw new IllegalArgumentException("Valor invalido");
+				throw new IllegalArgumentException("Valor invalido"); // float < ou igual a zero
 			}
 		} catch (Exception e) {
-			throw new IllegalArgumentException("Valor invalido");
+			throw new IllegalArgumentException("Valor invalido"); //literal nao numerico
 		}
 	}
 
@@ -167,7 +167,7 @@ public class Fatura {
 	 * @return o cnpj validado ou uma excpetion
 	 */
 	public String setCnpj(String cnpj) {
-		if (cnpjIsValido(cnpj)) {
+		if ((cnpj !=  null) && cnpjIsValido(cnpj)) {
 			return cnpj;
 		} else {
 			logger.info(">>>>>> setCnpj invalido ");

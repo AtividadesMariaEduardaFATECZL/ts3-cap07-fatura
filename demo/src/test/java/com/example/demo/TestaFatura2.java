@@ -28,7 +28,9 @@ class TestaFatura2 {
 	@CsvSource({
 
 			"1,71112917000126, 28/09/2023, moveis planejados, 1500, fatura not null",  //classe valida
-			"1,7111291700012, 28/09/2023, moveis planejados, 1500, CNPJ invalido"     //cnpj com 13 caracteres
+			"1,7111291700012, 28/09/2023, moveis planejados, 1500, CNPJ invalido",     //cnpj com 13 caracteres
+			"1, ,28/09/2023, moveis planejados, 1500, CNPJ invalido",                  //cnpj invalido
+			"1,71112917000126 ,28.09.2023, moveis planejados, 1500, Data invalida"
 			
 	})
 
