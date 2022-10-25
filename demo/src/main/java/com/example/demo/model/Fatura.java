@@ -74,7 +74,7 @@ public class Fatura {
 	public String setDataVencimento(String data) {
         //É necessário ficar atento a situações excepcionais onde a execução ou não do restante dos operadores 
 		//pode alterar o fluxo do programa e gerar um resultado não esperado
-		if ((isValida(data) == true) && (dtVencMaiorDtAtual(getDataEmissao(), data) == true) && (ehDomingo(data) == false) ) {
+		if ((isValida(data)) && (dtVencMaiorDtAtual(getDataEmissao(), data)) && (!ehDomingo(data)) ) {
 			logger.info(">>>>>> setDataVencimento  => " + data);
 			return data;
 		} else {
