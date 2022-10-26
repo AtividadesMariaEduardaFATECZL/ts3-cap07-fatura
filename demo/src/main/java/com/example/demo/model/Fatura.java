@@ -39,12 +39,12 @@ public class Fatura {
 	public Fatura() {
 	}
 
-	public int getNumero() {
-		return numero;
-	}
-
 	public String getDataEmissao() {
 		return dataEmissao;
+	}
+
+	public void setDataEmissao(String dataEmissao) {
+		this.dataEmissao = dataEmissao;
 	}
 
 	public String getDataVencimento() {
@@ -87,11 +87,10 @@ public class Fatura {
 	 * @param data
 	 * @return true ou false
 	 */
-
 	public boolean ehDomingo(String data) {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/yyyy");
 		DateTime umaData = fmt.parseDateTime(data);
-		if (umaData.dayOfWeek().getAsText().equals("domingo")) {
+		if (umaData.dayOfWeek().getAsText().equals("Sunday")) {
 			logger.info(">>>>>> ehdomingo => true ");
 			return true;
 		} else {
@@ -176,9 +175,6 @@ public class Fatura {
 
 	}
 
-	public String getServicoContratado() {
-		return servicoContratado;
-	}
 	/**
 	 * atribui o texto do servico contratado
 	 * @param servico
